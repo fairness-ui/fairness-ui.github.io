@@ -1,36 +1,59 @@
 # The Center FAIRNESS
 
-Center for Advanced Integrated Research on Network and Embedded System Security  
+**Center for Advanced Integrated Research on Network and Embedded System Security**  
 Departemen Teknik Elektro, Fakultas Teknik, Universitas Indonesia
 
-Static site for **https://fairness-ui.github.io/** — plain HTML and CSS, no build step.
+This site uses the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme and is built for **https://fairness-ui.github.io/**.
 
 ## Structure
 
-| Page | URL |
-|------|-----|
-| Home | `/` or `/index.html` |
-| Research Team | `/team/research-team.html` |
-| Doctoral / Master / Bachelor Student | `/team/doctoral-student.html` etc. |
-| Alumni | `/alumni.html` |
-| Research | `/research.html` |
-| Publications | `/publications.html` |
-| Contacts | `/contacts.html` |
+Content is provided as **Markdown (`.md`)** files:
 
-## Publish to GitHub Pages
+| Section | Path | URL |
+|--------|------|-----|
+| Home | `_pages/about.md` | `/` |
+| Team Member (dropdown) | `_pages/team.md` | `/team/` |
+| Research Team | `_pages/team/research-team.md` | `/team/research-team/` |
+| Doctoral / Master / Bachelor Student | `_pages/team/*.md` | `/team/doctoral-student/` etc. |
+| Alumni | `_pages/alumni.md` | `/alumni/` |
+| Research | `_pages/research.md` | `/research/` |
+| Publications | `_pages/publications.md` | `/publications/` |
+| Contacts | `_pages/contacts.md` | `/contacts/` |
 
-1. Push this repo to `https://github.com/fairness-ui/fairness-ui.github.io`
-2. **Settings → Pages**: Source = **Deploy from a branch**
-3. Branch = **main** (or **master**), folder = **/ (root)**
-4. Save. The site will be at **https://fairness-ui.github.io/**
+- **News:** `_news/*.md`
+- **Publications (BibTeX):** `_bibliography/papers.bib`
+- **Blog posts (optional):** `_posts/*.md`
 
-## Local preview
+## Build and deploy on GitHub Pages
 
-Open `index.html` in a browser, or run a local server:
+1. Push this repo to `https://github.com/fairness-ui/fairness-ui.github.io`.
+2. In the repo: **Settings → Pages**  
+   - Source: **Deploy from a branch**  
+   - Branch: **gh-pages** (the workflow deploys there)  
+   - Folder: **/ (root)**  
+   If the repo is `fairness-ui.github.io`, the site will be at **https://fairness-ui.github.io/**.
+3. Enable **Actions** and ensure the **Deploy site** workflow has run at least once (e.g. after the first push to `main`).
+4. Give **Settings → Actions → General → Workflow permissions**: **Read and write permissions**.
+
+The theme is loaded via `remote_theme: alshedivat/al-folio` in `_config.yml`; no need to copy theme files into this repo.
+
+## Local build
 
 ```bash
-cd fairness-ui.github.io
-python -m http.server 8000
+bundle install
+bundle exec jekyll serve
 ```
 
-Then open http://localhost:8000
+Then open http://localhost:4000 (or the URL Jekyll prints). For a production build:
+
+```bash
+JEKYLL_ENV=production bundle exec jekyll build
+```
+
+Output is in `_site/`.
+
+## Customization
+
+- **Site title, description, footer:** `_config.yml` (top section).
+- **Navigation and new pages:** add or edit files in `_pages/`; use `nav: true` and `nav_order` for menu order.
+- **Publications:** edit `_bibliography/papers.bib` and optionally scholar settings in `_config.yml`.
