@@ -58,6 +58,23 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Patch publications page for full build
+        run: |
+          cat << 'PUBEOF' | sed 's/^          //' > _pages/publications.md
+          ---
+          layout: page
+          permalink: /publications/
+          title: Publications
+          nav: true
+          nav_order: 5
+          description: "Publications by The Center FAIRNESS."
+          ---
+
+          {% include bib_search.liquid %}
+
+          {% bibliography %}
+          PUBEOF
+
       - name: Install and Build
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
