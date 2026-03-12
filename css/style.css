@@ -1,0 +1,166 @@
+/* The Center FAIRNESS - simple placeholder styles */
+:root {
+  --color-primary: #1a365d;
+  --color-text: #2d3748;
+  --color-muted: #718096;
+  --color-bg: #f7fafc;
+  --color-border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header & nav */
+.site-header {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.75rem 0;
+}
+
+.site-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.site-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.nav .has-submenu {
+  position: relative;
+}
+
+.nav .submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-primary);
+  min-width: 180px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.nav .has-submenu:hover .submenu {
+  display: block;
+}
+
+.nav .submenu a {
+  display: block;
+  padding: 0.4rem 1rem;
+}
+
+/* Main content */
+main {
+  padding: 2rem 0;
+  min-height: 50vh;
+}
+
+.page-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
+  color: var(--color-primary);
+}
+
+.placeholder-note {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: white;
+  border: 1px dashed var(--color-border);
+  border-radius: 4px;
+}
+
+/* Research team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.team-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.team-card .photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--color-border);
+  object-fit: cover;
+}
+
+.team-card .name {
+  margin: 0.75rem 0.25rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.team-card .role {
+  margin: 0.25rem 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.site-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
