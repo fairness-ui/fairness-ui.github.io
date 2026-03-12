@@ -3,34 +3,34 @@
 Center for Advanced Integrated Research on Network and Embedded System Security  
 Departemen Teknik Elektro, Fakultas Teknik, Universitas Indonesia
 
-Simple static site for GitHub Pages. Placeholder structure only; content can be filled in later.
+Static site for **https://fairness-ui.github.io/** — plain HTML and CSS, no build step.
 
 ## Structure
 
-- **Home** (`index.html`)
-- **Team Member** (submenu)
-  - Research Team (`team/research-team.html`) – sample page with chair and members
-  - Doctoral Student, Master Student, Bachelor Student – placeholders
-- **Alumni**, **Research**, **Publications** – placeholders
-- **Contacts** – basic contact info from ee.ui.ac.id
+| Page | URL |
+|------|-----|
+| Home | `/` or `/index.html` |
+| Research Team | `/team/research-team.html` |
+| Doctoral / Master / Bachelor Student | `/team/doctoral-student.html` etc. |
+| Alumni | `/alumni.html` |
+| Research | `/research.html` |
+| Publications | `/publications.html` |
+| Contacts | `/contacts.html` |
 
-## Run locally
+## Publish to GitHub Pages
 
-Open `index.html` in a browser, or use a simple server, e.g.:
+1. Push this repo to `https://github.com/fairness-ui/fairness-ui.github.io`
+2. **Settings → Pages**: Source = **Deploy from a branch**
+3. Branch = **main** (or **master**), folder = **/ (root)**
+4. Save. The site will be at **https://fairness-ui.github.io/**
+
+## Local preview
+
+Open `index.html` in a browser, or run a local server:
 
 ```bash
-# Python 3
+cd fairness-ui.github.io
 python -m http.server 8000
-# then open http://localhost:8000
 ```
 
-## GitHub Pages
-
-1. Create a repo named `fairness-ui.github.io` (or your org/username).
-2. Push this folder to the repo.
-3. In repo **Settings → Pages**, set source to main branch (root or /docs if you use a docs folder).
-4. Site will be at `https://fairness-ui.github.io` (or your repo URL).
-
-## Team photos
-
-Research Team page uses [UI Avatars](https://ui-avatars.com) for placeholder images. Replace with real photos from [ee.ui.ac.id/research-group/the-fairness](https://ee.ui.ac.id/research-group/the-fairness/) by saving images to e.g. `team/images/` and updating the `src` in `team/research-team.html`.
+Then open http://localhost:8000
