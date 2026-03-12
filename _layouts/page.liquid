@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% if page._styles %}
+{{ page._styles }}
+{% endif %}
+
+{{ page.title }}
+{{ page.description }}
+
+{{ content }}
+
+{% comment %}
+  Bibliography block removed for compatibility with GitHub Pages native build
+  (jekyll-scholar not available there). Use "Deploy site" workflow + gh-pages for full theme.
+{% endcomment %}
+{% if page.related_publications %}
+  <h2>References</h2>
+  <p><em>Cited references require jekyll-scholar (use Deploy site workflow).</em></p>
+{% endif %}
+
+{% if site.giscus and page.giscus_comments %}
+{% include giscus.liquid %}
+{% endif %}
