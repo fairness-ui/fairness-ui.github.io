@@ -27,13 +27,13 @@ Content is provided as **Markdown (`.md`)** files:
 ## Build and deploy on GitHub Pages
 
 1. Push this repo to `https://github.com/fairness-ui/fairness-ui.github.io`.
-2. In the repo: **Settings → Pages**  
-   - Source: **Deploy from a branch**  
-   - Branch: **gh-pages** (the workflow deploys there)  
-   - Folder: **/ (root)**  
-   If the repo is `fairness-ui.github.io`, the site will be at **https://fairness-ui.github.io/**.
-3. Enable **Actions** and ensure the **Deploy site** workflow has run at least once (e.g. after the first push to `main`).
-4. Give **Settings → Actions → General → Workflow permissions**: **Read and write permissions**.
+2. **Use the built site, not the source branch:**
+   - In the repo go to **Settings → Pages**.
+   - Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+   - Under **Branch**, choose **gh-pages** (not `main`), folder **/ (root)**.
+   - Save. The site is built by the **Deploy site** workflow and pushed to `gh-pages`; Pages must serve that branch.
+3. Enable **Actions** and ensure the **Deploy site** workflow has run (e.g. after a push to `main`). If it didn’t run, open the **Actions** tab → **Deploy site** → **Run workflow**.
+4. Under **Settings → Actions → General → Workflow permissions**, set **Read and write permissions** so the workflow can push to `gh-pages`.
 
 The theme is loaded via `remote_theme: alshedivat/al-folio` in `_config.yml`; no need to copy theme files into this repo.
 

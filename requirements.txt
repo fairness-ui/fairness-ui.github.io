@@ -1,0 +1,2 @@
+# Python deps for Jekyll build (e.g. jekyll-jupyter-notebook / nbconvert)
+nbconvert>=7.0.0
